@@ -1,0 +1,8 @@
+services:
+  backend_livestream:
+    build: .
+    restart: on-failure
+    env_file:
+      - default.toml
+    ports:
+      - "6776:6776"

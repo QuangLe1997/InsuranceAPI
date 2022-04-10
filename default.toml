@@ -1,0 +1,16 @@
+[default]
+VERSION = "local"
+SHEET_NAME = "Car Insurance test"
+LOG_HANDELER = "console,telegram"
+TELEGRAM_BOT_TOKEN = "2095145307:AAEvos4DLIPfvuW57zro6JLJNEul6N-gLA4"
+TELEGRAM_GROUP_ID = "-685119217"
+
+[default.security]
+# Set secret key in .secrets.toml
+SECRET_KEY = "73648923Hsdf37824jijsfheygfihg"
+
+[default.server]
+port = 6776
+host = "0.0.0.0"
+log_level = "info"
+reload = false
