@@ -2,9 +2,10 @@ import datetime
 import logging
 
 import pygsheets
-from fastapi import APIRouter, Depends, Body
+from fastapi import APIRouter, Depends, Body, Security
 
 from configs import settings
+from core.authen import get_api_key
 from models.base_model import CarInsuranceModel
 from models.base_response import BaseResponseData, BaseErrorResponse
 from utils import create_aliased_response
@@ -68,6 +69,7 @@ async def health_check():
     "/car-insurance/new-insurance",
     response_model=BaseResponseData,
     tags=["Wrapper API"],
+    dependencies=[Security(get_api_key)],
 )
 async def new_car_insurance(
     *,
