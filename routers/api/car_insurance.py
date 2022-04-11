@@ -27,23 +27,22 @@ def get_gg_sheet_inst():
         sh = gc.open(settings.SHEET_NAME)
         GC_SHEET_SRV = sh[0]
         GC_SHEET_SRV.insert_rows(
-            CURRENT_ROW,
+            3,
             number=1,
             values=[
-                "Họ Tên",
+                "Tên",
                 "SĐT",
                 "Email",
                 "Hãng xe",
                 "Dòng xe",
-                "Năm sản xuất xe",
+                "Năm SX",
                 "Tỉnh thành",
-                "Ngày đăng ký đầu tiên",
-                "Ngày hiệu lực Bảo hiểm",
-                "Xe kinh doanh",
-                "Gói bảo hiểm",
-                "Thời gian Submit",
+                "Ngày ĐK đầu tiên",
+                "Ngày hiệu lực BH",
+                "Xe Đk KD",
+                "Gói BH",
+                "Thời gian tạo",
             ],
-            inherit=True,
         )
         CURRENT_ROW += 1
         return GC_SHEET_SRV
@@ -82,7 +81,7 @@ async def new_car_insurance(
 
     try:
         gg_sh.insert_rows(
-            CURRENT_ROW,
+            5,
             number=1,
             values=[
                 body.name,
