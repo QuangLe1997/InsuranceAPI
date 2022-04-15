@@ -12,15 +12,12 @@ from utils import create_aliased_response
 
 router = APIRouter()
 GC_SHEET_SRV = None
-CURRENT_ROW = 2
 telegram_logger = logging.getLogger("critical")
 
 
 def get_gg_sheet_inst():
     global GC_SHEET_SRV
-    global CURRENT_ROW
     if GC_SHEET_SRV:
-        CURRENT_ROW += 1
         return GC_SHEET_SRV
     else:
         gc = pygsheets.authorize(service_file="insurance.json")
@@ -40,11 +37,9 @@ def get_gg_sheet_inst():
                 "Ngày ĐK đầu tiên",
                 "Ngày hiệu lực BH",
                 "Xe Đk KD",
-                "Gói BH",
                 "Thời gian tạo",
             ],
         )
-        CURRENT_ROW += 1
         return GC_SHEET_SRV
 
 
@@ -94,7 +89,6 @@ async def new_car_insurance(
                 body.date_registry,
                 body.date_insurance_atv,
                 body.is_ecom,
-                body.fee_package,
                 datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
             ],
             inherit=True,

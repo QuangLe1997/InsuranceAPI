@@ -2,6 +2,7 @@
 # pylint: disable=no-name-in-module
 # pylint: disable=too-few-public-methods
 from datetime import datetime, timezone
+from typing import Optional
 
 from pydantic import BaseConfig, BaseModel
 
@@ -23,7 +24,7 @@ class MyModel(BaseModel):
 class CarInsuranceModel(MyModel):
     name: str
     phone: str
-    email: str
+    email: Optional[str]
     car_brand: str
     car_model: str
     car_year: str
@@ -31,5 +32,4 @@ class CarInsuranceModel(MyModel):
     date_registry: str
     date_insurance_atv: str
     is_ecom: int
-    fee_package: int
     date_submit: str
