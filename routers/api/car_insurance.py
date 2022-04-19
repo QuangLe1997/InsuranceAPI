@@ -89,7 +89,7 @@ async def new_car_insurance(
                 body.date_registry,
                 body.date_insurance_atv,
                 body.is_ecom,
-                datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S"),
+                body.date_submit
             ],
             inherit=True,
         )
