@@ -1,4 +1,3 @@
-import datetime
 import logging
 
 import pygsheets
@@ -81,7 +80,7 @@ async def new_car_insurance(
             values=[
                 body.name,
                 body.phone,
-                body.email,
+                body.email or "#",
                 body.car_brand,
                 body.car_model,
                 body.car_year,
@@ -89,7 +88,7 @@ async def new_car_insurance(
                 body.date_registry,
                 body.date_insurance_atv,
                 body.is_ecom,
-                body.date_submit
+                body.date_submit,
             ],
             inherit=True,
         )
